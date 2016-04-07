@@ -12,21 +12,18 @@
 <body class="menulist">
 	<ul>
 		<a href="mainpage.php" target="mainpage"><li>home</li></a>
-		<a href="../displays/scheduledisplay.php" target="mainpage"><li>schedules</li></a>
-		<a href="../displays/roomsdisplay.php" target="mainpage"><li>rooms</li></a>
-		<a href="../displays/coursesdisplay.php" target="mainpage"><li>courses</li></a>
-		<a href="../displays/unitsdisplay.php" target="mainpage"><li>units</li></a>
+		<a href="../startbootstrap-round-about-1.0.4/index.html" target="mainpage"><li>about</li></a>
+		<a href="unfinished.php" target="mainpage"><li>achievements</li></a>
+		<a href="unfinished.php" target="mainpage"><li>contacts</li></a>
+		<a href="../templatemo_476_conquer/index.html" target="mainpage"><li>media</li></a>
+		<a href="unfinished.php" target="mainpage"><li>inbox</li></a>
+		<a href="unfinished.php" target="mainpage"><li>sent</li></a>
 		<?php
-		if($_SESSION['domain']=="admin"){
-			echo "<a href=\"../displays/studentsdisplay.php\" target=\"mainpage\"><li>students</li></a>";
-			echo "<a href=\"addstudent.php\" target=\"mainpage\"><li>add student</li></a>";
-			echo "<a href=\"addlect.php\" target=\"mainpage\"><li>add lecturer</li></a>";
-			echo "<a href=\"addadmin.php\" target=\"mainpage\"><li>add admin</li></a>";
-			echo "<a href=\"addschedule.php\" target=\"mainpage\"><li>add schedule</li></a>";
-			echo "<a href=\"../functions/scheduleparser.php\" target=\"mainpage\"><li>add timetable</li></a>";
+		if($_SESSION['access']==1){
+			echo "<a href=\"unfinished.php\" target=\"mainpage\"><li>users</li></a>";
+			echo "<a href=\"unfinished.php\" target=\"mainpage\"><li>add admin</li></a>";
+			echo "<a href=\"unfinished.php\" target=\"mainpage\"><li>add user</li></a>";
 		}
-		elseif ($_SESSION['domain']=="lecturer" || $_SESSION['priv']==1) {
-			echo "<a href=\"addschedule.php\" target=\"mainpage\"><li>add schedule</li></a>";		}
 		?>
 	</ul>
 </body>

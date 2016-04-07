@@ -11,8 +11,8 @@
 <body> 
 
 <?php
-$nameErr = $passwordErr = $domainErr = "";
-$name = $password = $domain = "";
+$nameErr = $passwordErr = "";
+$name = $password = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    if (empty($_POST["name"])) {
@@ -24,14 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    if (empty($_POST["password"])) {
      $passwordErr = "password is required";
    } else {
-     $password = md5(test_input($_POST["password"]));
+     $password = test_input($_POST["password"]);
    }
 
-   if (empty($_POST["domain"])) {
-     $domainErr = "domain is required";
-   } else {
-     $domain = test_input($_POST["domain"]);
-   }
 }
 
 function test_input($data) {
@@ -50,12 +45,6 @@ function test_input($data) {
    <br><br>
    Password: <input type="password" name="password" value="<?php echo $password;?>" placeholder = "password..." >
    <span class="error">* <?php echo $passwordErr;?></span>
-   <br><br>
-   domain:
-	<input type="radio" name="domain" <?php if (isset($domain) && $domain=="student") echo "checked";?>  value="student">Student
-   <input type="radio" name="domain" <?php if (isset($domain) && $domain=="lecturer") echo "checked";?>  value="lecturer">Lecturer
-   <input type="radio" name="domain" <?php if (isset($domain) && $domain=="admin") echo "checked";?>  value="admin">Admin
-   <span class="error">* <?php echo $domainErr;?></span>
    <br><br>
    <input type="submit" name="submit" value="Login"> 
 </form>
